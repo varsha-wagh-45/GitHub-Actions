@@ -8,7 +8,7 @@ jobs:
         run: git clone https://github.com/varsha-wagh-45/GitHub-Actions.git
 
       - name: List files in repository
-        run: 
+        run: |
           cd GitHub-Actions
           ls -l 
 
