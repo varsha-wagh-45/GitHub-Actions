@@ -1,10 +1,14 @@
 name: myFirstworkflow
-on: workflow_dispatch  
+on: push  
 jobs:
   myfirstjob:
     runs-on: ubuntu-latest
     steps:
-      - name: Addition
-        run: expr 2 + 1
+      - name: Clone repository
+        run: git clone https://github.com/varsha-wagh-45/GitHub-Actions.git
+
+      - name: List files in repository
+        run: cd github-actions && ls -la
+
 
         
