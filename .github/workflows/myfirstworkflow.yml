@@ -5,12 +5,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Clone repository
-        run: git clone https://github.com/varsha-wagh-45/GitHub-Actions.git
+        uses: actions/checkout@v6
 
       - name: List files in repository
-        run: |
-          cd GitHub-Actions
-          ls -l 
+        run: ls -l 
 
 
         
