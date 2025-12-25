@@ -11,4 +11,15 @@ jobs:
         run: ls -l 
 
 
+
+  mysecondjob:
+    runs-on: [self-hosted, linux,b14]
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v6
+
+      - name: List files in repository
+        run: ls -l 
+
+
         
