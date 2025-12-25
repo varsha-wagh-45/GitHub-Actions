@@ -9,7 +9,7 @@ jobs:
 
       - name: List files in repository
         run: 
-          cd GITHUB-ACTIONS 
+          cd GitHub-Actions
           ls -l 
 
 
