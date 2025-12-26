@@ -1,28 +1,22 @@
 name: myFirstworkflow
 on: push  
 jobs:
-  myfirstjob:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: creating a report file
-        run: echo "This is my first workflow" > report.txt
-
-      - name: upoload reporst artifact file
-        uses: actions/upload-artifact@v4
+      - name: aws key setup
+        uses: aws-actions/configure-aws-credentials@v1
         with:
-          name: report-artifact
-          path: report.txt
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ap-south-1
+
+      - name: aws cli check
+        run: aws --version
+
+      - name: s3 list buckets
+        run: aws s3 ls
+      
 
 
-  check_artifact:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Download report artifact
-        uses: actions/download-artifact@v5
-        with:
-          name: report-artifact
-      - name: check artifacet contents
-        run: cat report.txt
-
-
-        
+  
